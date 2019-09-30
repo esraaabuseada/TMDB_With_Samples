@@ -44,7 +44,8 @@ class  ListActorAdapter: ListActorsAdapterProtocal {
     }
     
      func isLastIndex(index: IndexPath) -> Bool {
-        return false
+        
+        return true
     }
     
     func clear(reload: Bool) {

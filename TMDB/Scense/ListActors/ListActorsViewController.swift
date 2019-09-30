@@ -43,6 +43,12 @@ class ListActorsViewController: BaseViewController< ListActorsPresenter >,ListAc
         let cell = tableView.dequeueReusableCell(withIdentifier: "actortableViewCell", for: indexPath) as! ActorsTableViewCell
        var personObj = adapter.getPerson(index: indexPath.row)
         cell.configur(person: personObj)
+       
+            if(indexPath.row == adapter.count()-7){
+            listPresenter?.loadMoreActores()
+            
+        }
+        
         
         return cell
     }

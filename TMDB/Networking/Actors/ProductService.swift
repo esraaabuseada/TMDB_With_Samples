@@ -12,7 +12,8 @@ import Moya
 //swiftlint:disable  force_unwrapping
 
 enum  ActorsService {
-    case popular
+    case popular( page : Int)
+    
 }
 
 extension ActorsService: TargetType {
@@ -43,9 +44,9 @@ extension ActorsService: TargetType {
     
     var task: Task {        
         switch self {
-        case .popular :
+        case .popular(let page) :
 			return .requestParameters(
-				parameters: ["api_key":NetworkManager.shared.networkConfig.apiKey],
+                parameters: ["api_key":NetworkManager.shared.networkConfig.apiKey,"page":page],
 				encoding: URLEncoding.default)
         }
     }

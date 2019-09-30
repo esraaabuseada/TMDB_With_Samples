@@ -48,6 +48,18 @@ class ListActorsPresenter: BasePresenter,ListActorsPresenterProtocal {
     }
     
     func loadMoreActores() {
+        currentPage = currentPage+1
+        model?.getActors(forPage: currentPage) { result in
+            switch result {
+            case .success(let apiResponse):
+                
+                print(apiResponse)
+                self.view?.getList(array: apiResponse as! [Person] )
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
         
     }
     

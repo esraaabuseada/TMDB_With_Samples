@@ -13,7 +13,7 @@ class ListActorModel :BaseModel,ListActorsModelProtocal {
     
     var networkManager = NetworkManager()
     func getActors(forPage page: Int, compelation: @escaping (Result<Any, Error>) -> Void){
-        networkManager.getActors(pageNumber: 1) { result,statusCode  in
+        networkManager.getActors(pageNumber: page) { result,statusCode  in
             do {
                 let res = try result.get()
                
