@@ -21,9 +21,15 @@ protocol ListActorsPresenterProtocal: BasePresenterProtocol {
 }
 
 protocol ListActorsViewProtocal:BaseViewProtocal {
-    
+    func getList(array: [Person])
 }
 
 protocol ListActorsModelProtocal:BaseModelProtocal {
-    func getActors(forPage page:Int , compelation: Result<Any,Error>)
+    func getActors(forPage page:Int , compelation: @escaping (Result<Any,Error>) -> Void)
 }
+
+
+protocol ListActorsAdapterProtocal:BaseListAdapterProtocal  {
+    
+}
+
